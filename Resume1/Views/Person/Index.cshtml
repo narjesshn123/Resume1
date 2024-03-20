@@ -1,0 +1,47 @@
+﻿@* @using Syncfusion.EJ2 *@
+@{
+    ViewData["Title"] = "Index";
+    IDictionary<string, object> firstNameAttribute = new Dictionary<string, object>()
+    {
+       { "name", "FirstName" }
+    };
+    IDictionary<string, object> lastNameAttribute = new Dictionary<string, object>()
+    {
+       { "name", "LastName" }
+    };
+}
+
+<h1>Index</h1>
+@* 
+<form id="form-element">
+    <div class="form-group">
+        <label for="first-name">First Name:</label>
+        @Html.EJS().TextBox("firstname").Placeholder("First Name").Width("25%").HtmlAttributes(firstNameAttribute).Render()
+    </div>
+    <div class="form-group">
+        <label for="last-name">Last Name:</label>
+        @Html.EJS().TextBox("lastname").Placeholder("Last Name").Width("25%").HtmlAttributes(lastNameAttribute).Render()
+    </div>
+    @Html.EJS().Button("submit").Content("Submit").Render()
+</form> *@
+<script>
+    // Sets required property in the FormValidator rules collection
+    var options = {
+        rules: {
+            'FirstName': { required: true },
+            'LastName': { required: true },
+        },
+    };
+
+    // Defines FormValidator to validate the TextBox
+    var formObject = new ej.inputs.FormValidator('#form-element', options);
+
+    // Places error label outside the TextBox using the customPlacement event of FormValidator
+    formObject.customPlacement = function (element, errorElement) {
+        element.parentElement.parentElement.appendChild(errorElement);
+    };
+    // Form validates the input values using validate method of FormValidator
+    document.getElementById("submit").addEventListener('click', function () {
+        formObject.validate();
+    });
+</script>
