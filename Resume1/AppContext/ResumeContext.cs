@@ -4,7 +4,7 @@ using Resume1.Models;
 
 namespace Resume1.AppContext
 {
-    public class ResumeContext:DbContext
+    public class ResumeContext : DbContext
     {
         public ResumeContext(DbContextOptions<ResumeContext> options) : base(options)
         {
@@ -21,6 +21,8 @@ namespace Resume1.AppContext
             modelBuilder.ApplyConfiguration(new WorkExperienceMapping());                      
             base.OnModelCreating(modelBuilder); 
         }
+
+    
 
         public DbSet<Person> Person { get; set; }  
         public DbSet<City> Cities { get; set; }  
