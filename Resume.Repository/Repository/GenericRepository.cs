@@ -11,8 +11,7 @@ namespace Resume1.AppContext
         public GenericRepository(ResumeContext context)
         {
             _dbset = context.Set<TEntity>();
-
-            db = context;
+             db = context;
         }
         public bool Delete(TEntity entity)
         {
