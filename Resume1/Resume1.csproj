@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Resume.Model.csproj" />
+    <ProjectReference Include="..\Domain\Resume.Core.csproj" />
   </ItemGroup>
 
 </Project>

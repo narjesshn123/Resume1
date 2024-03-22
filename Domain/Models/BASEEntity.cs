@@ -1,5 +1,5 @@
 ﻿namespace Resume1.Models;        
-    public class DomainEntity
+    public abstract class BaseEntity        
     {
     public int Id { get; set; } 
     }
