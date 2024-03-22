@@ -9,17 +9,17 @@ namespace Resume1.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IGenericRepository<Person> _genericRepository;
-        public HomeController(IGenericRepository<Person> genericRepository)
+		//private readonly IGenericRepository<Person> _genericRepository;
+		//public HomeController(IGenericRepository<Person> genericRepository)
+		//{
+		//	_genericRepository = genericRepository;
+		//}
+		public IActionResult Index()
 		{
-			_genericRepository = genericRepository;      	 
-		}
-        public IActionResult Index()
-		{
-            var person = _genericRepository.GetAll();	
+			//var person = _genericRepository.GetAll();
 
-            return View(person);
-        }
+			return View();
+		}
 
 		public IActionResult Privacy()
 		{

@@ -8,7 +8,7 @@ namespace Resume1.Mapping
     {
         void IEntityTypeConfiguration<City>.Configure(EntityTypeBuilder<City> builder)
         {
-            builder.ToTable("Cities");
+            builder.ToTable("City");
             builder.HasKey(x => x.Id);                                    
             builder.HasMany(x => x.persons).WithOne(x => x.City).HasForeignKey(x=>x.CityId);  
             

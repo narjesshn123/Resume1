@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Resume1.AppContext;
 
 #nullable disable
 
-namespace Resume1.Migrations
+namespace Resume.Model.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240319161816_init1")]
-    partial class init1
+    partial class ResumeContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,36 +21,6 @@ namespace Resume1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EducationalRecordPerson", b =>
-                {
-                    b.Property<int>("EducationalRecordsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("peopleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EducationalRecordsId", "peopleId");
-
-                    b.HasIndex("peopleId");
-
-                    b.ToTable("EducationalRecordPerson");
-                });
-
-            modelBuilder.Entity("LanguagesPerson", b =>
-                {
-                    b.Property<int>("LanguagesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("peopleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LanguagesId", "peopleId");
-
-                    b.HasIndex("peopleId");
-
-                    b.ToTable("LanguagesPerson");
-                });
 
             modelBuilder.Entity("Resume1.Models.City", b =>
                 {
@@ -69,7 +36,7 @@ namespace Resume1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("City");
+                    b.ToTable("City", (string)null);
                 });
 
             modelBuilder.Entity("Resume1.Models.EducationalRecord", b =>
@@ -91,6 +58,9 @@ namespace Resume1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UniversityName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -99,6 +69,8 @@ namespace Resume1.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
 
                     b.ToTable("EducationalRecord");
                 });
@@ -142,7 +114,7 @@ namespace Resume1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Languages", (string)null);
                 });
 
             modelBuilder.Entity("Resume1.Models.Person", b =>
@@ -169,7 +141,7 @@ namespace Resume1.Migrations
                     b.Property<bool>("Geger")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("JobId")
+                    b.Property<int>("JobId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -181,12 +153,41 @@ namespace Resume1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId")
-                        .IsUnique();
+                    b.HasIndex("CityId");
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("Person");
+                    b.ToTable("Persons", (string)null);
+                });
+
+            modelBuilder.Entity("Resume1.Models.PersonLanguages", b =>
+                {
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PersonId", "LanguageId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("PersonLanguages", (string)null);
+                });
+
+            modelBuilder.Entity("Resume1.Models.PersonSkills", b =>
+                {
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PersonId", "SkillId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("PersonSkills", (string)null);
                 });
 
             modelBuilder.Entity("Resume1.Models.Skills", b =>
@@ -196,9 +197,6 @@ namespace Resume1.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Proficiency")
                         .IsRequired()
@@ -210,9 +208,7 @@ namespace Resume1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Skills");
+                    b.ToTable("Skills", (string)null);
                 });
 
             modelBuilder.Entity("Resume1.Models.WorkExperience", b =>
@@ -244,61 +240,75 @@ namespace Resume1.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("WorkExperience");
+                    b.ToTable("WorkExperiences", (string)null);
                 });
 
-            modelBuilder.Entity("EducationalRecordPerson", b =>
+            modelBuilder.Entity("Resume1.Models.EducationalRecord", b =>
                 {
-                    b.HasOne("Resume1.Models.EducationalRecord", null)
-                        .WithMany()
-                        .HasForeignKey("EducationalRecordsId")
+                    b.HasOne("Resume1.Models.Person", "Person")
+                        .WithMany("EducationalRecords")
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Resume1.Models.Person", null)
-                        .WithMany()
-                        .HasForeignKey("peopleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LanguagesPerson", b =>
-                {
-                    b.HasOne("Resume1.Models.Languages", null)
-                        .WithMany()
-                        .HasForeignKey("LanguagesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Resume1.Models.Person", null)
-                        .WithMany()
-                        .HasForeignKey("peopleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("Resume1.Models.Person", b =>
                 {
                     b.HasOne("Resume1.Models.City", "City")
-                        .WithOne("Person")
-                        .HasForeignKey("Resume1.Models.Person", "CityId")
+                        .WithMany("persons")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Resume1.Models.Job", "Job")
-                        .WithMany()
-                        .HasForeignKey("JobId");
+                        .WithMany("Person")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("City");
 
                     b.Navigation("Job");
                 });
 
-            modelBuilder.Entity("Resume1.Models.Skills", b =>
+            modelBuilder.Entity("Resume1.Models.PersonLanguages", b =>
                 {
-                    b.HasOne("Resume1.Models.Person", null)
-                        .WithMany("Skills")
-                        .HasForeignKey("PersonId");
+                    b.HasOne("Resume1.Models.Languages", "Languages")
+                        .WithMany("PersonLanguages")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Resume1.Models.Person", "Person")
+                        .WithMany("PersonLanguages")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Languages");
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Resume1.Models.PersonSkills", b =>
+                {
+                    b.HasOne("Resume1.Models.Person", "Person")
+                        .WithMany("PersonSkills")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Resume1.Models.Skills", "Skills")
+                        .WithMany("PersonSkills")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+
+                    b.Navigation("Skills");
                 });
 
             modelBuilder.Entity("Resume1.Models.WorkExperience", b =>
@@ -314,15 +324,33 @@ namespace Resume1.Migrations
 
             modelBuilder.Entity("Resume1.Models.City", b =>
                 {
-                    b.Navigation("Person")
-                        .IsRequired();
+                    b.Navigation("persons");
+                });
+
+            modelBuilder.Entity("Resume1.Models.Job", b =>
+                {
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Resume1.Models.Languages", b =>
+                {
+                    b.Navigation("PersonLanguages");
                 });
 
             modelBuilder.Entity("Resume1.Models.Person", b =>
                 {
-                    b.Navigation("Skills");
+                    b.Navigation("EducationalRecords");
+
+                    b.Navigation("PersonLanguages");
+
+                    b.Navigation("PersonSkills");
 
                     b.Navigation("WorkExperiences");
+                });
+
+            modelBuilder.Entity("Resume1.Models.Skills", b =>
+                {
+                    b.Navigation("PersonSkills");
                 });
 #pragma warning restore 612, 618
         }

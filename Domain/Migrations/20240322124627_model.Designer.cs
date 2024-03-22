@@ -9,11 +9,11 @@ using Resume1.AppContext;
 
 #nullable disable
 
-namespace Resume1.Migrations
+namespace Resume.Model.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240320020621_init4")]
-    partial class init4
+    [Migration("20240322124627_model")]
+    partial class model
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace Resume1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("City", (string)null);
                 });
 
             modelBuilder.Entity("Resume1.Models.EducationalRecord", b =>
