@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Resume.Core.csproj" />
+    <ProjectReference Include="..\Resume.Application.Contracts\Resume.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Resume.Application\Resume.Application.csproj" />
     <ProjectReference Include="..\Resume.Service\Resume.Infrastructure.csproj" />
   </ItemGroup>
 

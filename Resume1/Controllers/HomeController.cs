@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Resume.Service.Service;
+
 using Resume1.AppContext;
 using Resume1.Models;
 
@@ -10,11 +10,11 @@ namespace Resume1.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IGenericService<Person> _genericService;
+		//private readonly IGenericService<Person> _genericService;
 	
-		public HomeController(IGenericService<Person> genericRepository)
+		public HomeController()
 		{
-            _genericService = genericRepository;
+            //_genericService = genericRepository;
 		}
 		public IActionResult Index()
 		{

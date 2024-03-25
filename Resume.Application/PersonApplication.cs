@@ -14,7 +14,7 @@ public class PersonApplication : IPersonApplication
     public OperationResult Create(CreatePerson commmand)
     {
        var operation = new OperationResult();
-        if (_personRepository.Exists(commmand.Name))
+        if (_personRepository.Exists(c=>c.Name== commmand.Name))
             return operation.Failed("رکورد تکراری است. "); 
         
         var person = new Person(commmand.Name, commmand.Family, commmand.Email, commmand.Geger, commmand.DateOfBirth, commmand.PhoneNumber);
