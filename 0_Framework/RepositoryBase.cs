@@ -1,36 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace _0_Framework
 {
     public class RepositoryBase<TKey, T> : IRepository<TKey, T> where T : class
     {
+        private readonly DbContext _dbContext;
+
+        public RepositoryBase(DbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Add<T>(entity);    
         }
 
-        public bool Exists(string Name)
+        public bool Exists(Expression<Func<T, bool>>expersion)
         {
-            throw new NotImplementedException();
-        }
-
+            return _dbContext.Set<T>().Any(expersion);   
+        }  
         public T Get(TKey id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Find<T>(id); 
         }
 
         public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>().ToList();                        
         }
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _dbContext.SaveChanges();     
         }
     }
 }
