@@ -1,4 +1,4 @@
-﻿@* @using Syncfusion.EJ2 *@
+﻿﻿@using Syncfusion.EJ2 
 @{
     ViewData["Title"] = "Index";
     IDictionary<string, object> firstNameAttribute = new Dictionary<string, object>()
@@ -12,7 +12,7 @@
 }
 
 <h1>Index</h1>
-@* 
+
 <form id="form-element">
     <div class="form-group">
         <label for="first-name">First Name:</label>
@@ -23,7 +23,7 @@
         @Html.EJS().TextBox("lastname").Placeholder("Last Name").Width("25%").HtmlAttributes(lastNameAttribute).Render()
     </div>
     @Html.EJS().Button("submit").Content("Submit").Render()
-</form> *@
+</form> 
 <script>
     // Sets required property in the FormValidator rules collection
     var options = {

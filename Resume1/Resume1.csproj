@@ -13,10 +13,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="25.1.35" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Resume.Core.csproj" />
+    <ProjectReference Include="..\Resume.Service\Resume.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
