@@ -1,25 +1,24 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Resume.Application;
-using Resume.Application.Contracts.Person;
 using Resume.Core.Models;
 using Resume.Repository.Repository;
 using Resume1.AppContext;
-//using Resume1.Controllers;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<ResumeContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("ResumeDb")));
 
-//builder.Services.AddScoped<IUnitOfWork, ResumeContext>(); 
-builder.Services.AddScoped<IPersonRepository, PersonRepository>() ;
-builder.Services.AddScoped<IPersonApplication, PersonApplication>();               
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+
 var app = builder.Build();
 //builder.Services.AddScoped<IPersonRepository, PersonRepository>(); 
 // Configure the HTTP request pipeline.

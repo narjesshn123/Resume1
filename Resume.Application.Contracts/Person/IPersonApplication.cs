@@ -8,6 +8,6 @@ namespace Resume.Application.Contracts.Person;
     public interface IPersonApplication
     {
     OperationResult Create(CreatePerson commmand);
-    OperationResult Edit(EditPerson command);   
+    OperationResult Edit(EditPerson command);       
     //Person GetPerson(int id);    
     }

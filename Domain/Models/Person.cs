@@ -15,50 +15,42 @@
     public City City { get; private set; }
     public int CityId { get; private set; }
     public List<PersonSkills> PersonSkills { get; private set; } = new List<PersonSkills>();
-    public Person(string name, string family, string? email, string? phoneNumber, bool geger, DateTime dateOfBirth, Job job, int jobId, List<EducationalRecord> educationalRecords, List<PersonLanguages> personLanguages, List<WorkExperience> workExperiences, City city, int cityId, List<PersonSkills> personSkills)
-    {
-        Name = name;
-        Family = family;
-        Email = email;
-        PhoneNumber = phoneNumber;
-        Geger = geger;
-        DateOfBirth = dateOfBirth;
-        Job = job;
-        JobId = jobId;
-        EducationalRecords = educationalRecords;
-        PersonLanguages = personLanguages;
-        WorkExperiences = workExperiences;
-        City = city;
-        CityId = cityId;
-        PersonSkills = personSkills;
-    }
+    //public Person(string name, string family, string? email, string? phoneNumber, bool geger, DateTime dateOfBirth, Job job, int jobId, List<EducationalRecord> educationalRecords, List<PersonLanguages> personLanguages, List<WorkExperience> workExperiences, City city, int cityId, List<PersonSkills> personSkills)
+    //{
+    //    Name = name;
+    //    Family = family;
+    //    Email = email;
+    //    PhoneNumber = phoneNumber;
+    //    Geger = geger;
+    //    DateOfBirth = dateOfBirth;
+    //    Job = job;
+    //    JobId = jobId;
+    //    EducationalRecords = educationalRecords;
+    //    PersonLanguages = personLanguages;
+    //    WorkExperiences = workExperiences;
+    //    City = city;
+    //    CityId = cityId;
+    //    PersonSkills = personSkills;
+    //}
 
-    public Person(string name, string family, string? email, bool geger, DateTime dateOfBirth, string? phoneNumber)
-    {
-        Name = name;
-        Family = family;
-        Email = email;
-        Geger = geger;
-        DateOfBirth = dateOfBirth;
-        PhoneNumber = phoneNumber;
-    }
+   
 
-    public void Edit(string name, string family, string? email, string? phoneNumber, bool geger, DateTime dateOfBirth)
-    {
-        Name=name;
-        Family=family;
-        Email=email;
-        PhoneNumber = phoneNumber;
-        Geger = geger;
-        DateOfBirth = dateOfBirth;
-        //Job = job;
-        //JobId = jobId;
-        //EducationalRecords = educationalRecords;
-        //PersonLanguages = personLanguages;
-        //WorkExperiences = workExperiences;
-        //City = city;
-        //CityId = cityId;
-        //PersonSkills = personSkills;
-    }
+    //public void Edit(string name, string family, string? email, string? phoneNumber, bool geger, DateTime dateOfBirth, Job job, int jobId, List<EducationalRecord> educationalRecords, List<PersonLanguages> personLanguages, List<WorkExperience> workExperiences, City city, int cityId, List<PersonSkills> personSkills)
+    //{
+    //    Name=name;
+    //    Family=family;
+    //    Email=email;
+    //    PhoneNumber = phoneNumber;
+    //    Geger = geger;
+    //    DateOfBirth = dateOfBirth;
+    //    Job = job;
+    //    JobId = jobId;
+    //    EducationalRecords = educationalRecords;
+    //    PersonLanguages = personLanguages;
+    //    WorkExperiences = workExperiences;
+    //    City = city;
+    //    CityId = cityId;
+    //    PersonSkills = personSkills;
+    //}
 }
 
