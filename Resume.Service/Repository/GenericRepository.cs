@@ -1,8 +1,7 @@
 ﻿using Resume.Core.Models;
 using Resume1.AppContext;
-using Resume1.Models;
-using Resume.Core;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Resume.Repository.Repository
 {
@@ -17,37 +16,33 @@ namespace Resume.Repository.Repository
             _resumeContext = resumeContext;
             _dbset = _resumeContext.Set<T>();                  
         }
-        public void Add(T entity)
+        public void Insert(T entity)
         {
-            _dbset.Add(entity);    
+            _dbset.Add(entity); 
         }
 
-        public void Delete(int id)
+        public void Delete(T entity)
         {
-            var entity = _dbset.Find(id);    
-            if (entity != null)
-            {
-                _dbset.Remove(entity);
-            }
-        }
-
-        public IEnumerable<T> GetAll()
-        {
-            return _dbset.ToList();      
-        }
-
-        public T GetById(int id)
-        {
-            return _dbset.Find(id);   
+            _resumeContext.Entry(entity).State = EntityState.Deleted;
         }
 
         public void Update(T entity)
         {
-            _dbset.Update(entity);
+            _resumeContext.Entry(entity).State= EntityState.Modified;              
         }
         public void SaveChanges()
         {
             _resumeContext.SaveChanges();
+        }
+
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            IQueryable<T> queryable = _dbset;
+            if(filter != null)
+            {
+                queryable = queryable.Where(filter);    
+            }
+            return queryable;          
         }
     }
 

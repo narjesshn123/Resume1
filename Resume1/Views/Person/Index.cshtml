@@ -13,17 +13,7 @@
 
 <h1>Index</h1>
 
-<form id="form-element">
-    <div class="form-group">
-        <label for="first-name">First Name:</label>
-        @Html.EJS().TextBox("firstname").Placeholder("First Name").Width("25%").HtmlAttributes(firstNameAttribute).Render()
-    </div>
-    <div class="form-group">
-        <label for="last-name">Last Name:</label>
-        @Html.EJS().TextBox("lastname").Placeholder("Last Name").Width("25%").HtmlAttributes(lastNameAttribute).Render()
-    </div>
-    @Html.EJS().Button("submit").Content("Submit").Render()
-</form> 
+
 <script>
     // Sets required property in the FormValidator rules collection
     var options = {

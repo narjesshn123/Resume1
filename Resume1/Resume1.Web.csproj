@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Resume.Core.csproj" />
-    <ProjectReference Include="..\Resume.Application\Resume.Application.csproj" />
-    <ProjectReference Include="..\Resume.Service\Resume.Infrastructure.csproj" />
+    <ProjectReference Include="..\Domain\Resume.Data.csproj" />
+    <ProjectReference Include="..\Resume.Application\Resume.Service.csproj" />
+    <ProjectReference Include="..\Resume.Service\Resume.Repo.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume1", "Resume1\Resume1.csproj", "{BF3BC1EE-6E07-43C4-A4AD-427A5F26AAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume1.Web", "Resume1\Resume1.Web.csproj", "{BF3BC1EE-6E07-43C4-A4AD-427A5F26AAB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Core", "Domain\Resume.Core.csproj", "{CF9C650C-5C90-4267-B53A-D90957D97075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Data", "Domain\Resume.Data.csproj", "{CF9C650C-5C90-4267-B53A-D90957D97075}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Infrastructure", "Resume.Service\Resume.Infrastructure.csproj", "{0230BA91-C7D4-4990-8CAF-50D725CEE2EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Repo", "Resume.Service\Resume.Repo.csproj", "{0230BA91-C7D4-4990-8CAF-50D725CEE2EA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Application", "Resume.Application\Resume.Application.csproj", "{C9B335DC-775B-4BDA-9FD5-B3AAF20D00CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Service", "Resume.Application\Resume.Service.csproj", "{C9B335DC-775B-4BDA-9FD5-B3AAF20D00CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

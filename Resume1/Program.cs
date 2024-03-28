@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ResumeContext>(options =>
 
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+builder.Services.AddScoped<IPersonService,PersonService>();
 
 var app = builder.Build();
 //builder.Services.AddScoped<IPersonRepository, PersonRepository>(); 

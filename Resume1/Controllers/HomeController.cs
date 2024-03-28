@@ -15,16 +15,15 @@ namespace Resume1.Controllers
 		//{
 		//	_genericService = genericService;
 		//}
-        private readonly IGenericService<Person> _genericService;
+        private readonly IPersonService _genericService;
 
-        public HomeController(IGenericService<Person> personService)
+        public HomeController(IPersonService personService)
         {
             _genericService = personService;
         }
         public IActionResult Index()
         {
-			var person = _genericService.GetAll(); 
-			return View(person);  
+			return View();  
 		}
 
 		public IActionResult Privacy()
