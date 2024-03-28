@@ -10,16 +10,16 @@
 	public DateTime EndDate { get; set; } 
 	public Person Person { get; set; } 
 	public int PersonId { get; set; }
-    public EducationalRecord(string feildOfStudy, string universityName, string grade, DateTime startDate, DateTime endDate, Person person, int personId)
-    {
-        FeildOfStudy = feildOfStudy;
-        UniversityName = universityName;
-        Grade = grade;
-        this.startDate = startDate;
-        EndDate = endDate;
-        Person = person;
-        PersonId = personId;
-    }
+    //public EducationalRecord(string feildOfStudy, string universityName, string grade, DateTime startDate, DateTime endDate, Person person, int personId)
+    //{
+    //    FeildOfStudy = feildOfStudy;
+    //    UniversityName = universityName;
+    //    Grade = grade;
+    //    this.startDate = startDate;
+    //    EndDate = endDate;
+    //    Person = person;
+    //    PersonId = personId;
+    //}
     public void Edit(string feildOfStudy, string universityName, string grade, DateTime startDate, DateTime endDate, Person person, int personId)
     {
         FeildOfStudy = feildOfStudy;

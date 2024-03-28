@@ -1,12 +1,12 @@
 ﻿namespace Resume1.Models;                   
 	public class Job: BaseEntity
 {
-    public Job(string title, string employmentStatus, List<Person> person)
-    {
-        Title = title;
-        EmploymentStatus = employmentStatus;
-        Person = person;
-    }
+    //public Job(string title, string employmentStatus, List<Person> person)
+    //{
+    //    Title = title;
+    //    EmploymentStatus = employmentStatus;
+    //    Person = person;
+    //}
     public void Edit(string title, string employmentStatus, List<Person> person)
     {
         Title = title;

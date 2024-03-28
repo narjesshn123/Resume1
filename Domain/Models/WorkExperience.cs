@@ -1,15 +1,15 @@
 ﻿namespace Resume1.Models;                  
 	public class WorkExperience: BaseEntity
 {
-    public WorkExperience(string title, string companyName, DateTime startDate, DateTime endDate, Person person, int personId)
-    {
-        Title = title;
-        CompanyName = companyName;
-        StartDate = startDate;
-        EndDate = endDate;
-        Person = person;
-        PersonId = personId;
-    }
+    //public WorkExperience(string title, string companyName, DateTime startDate, DateTime endDate, Person person, int personId)
+    //{
+    //    Title = title;
+    //    CompanyName = companyName;
+    //    StartDate = startDate;
+    //    EndDate = endDate;
+    //    Person = person;
+    //    PersonId = personId;
+    //}
 
     //public int Id { get; set; }  
     public string Title { get; set; }
