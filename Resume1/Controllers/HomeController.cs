@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Resume.Application;
 using Resume1.AppContext;
@@ -15,21 +16,33 @@ namespace Resume1.Controllers
 		//{
 		//	_genericService = genericService;
 		//}
-        private readonly IPersonService _genericService;
+        private readonly IPersonService _personService;
 
         public HomeController(IPersonService personService)
         {
-            _genericService = personService;
+            _personService = personService;
         }
         public IActionResult Index()
         {
+			var person = _personService.GetPersonById(2); 
 			return View();  
 		}
-
-		public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Base()
+        {
+            return View();
+        }
+        [HttpPost]
+		public IActionResult Base(Person person)
 		{
-			return View();
-		}
+          
+                _personService.Create(person);
+                _personService.Save(); 
+
+            
+            return View(person);
+
+        }
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

@@ -1,7 +1,7 @@
 ﻿namespace Resume1.Models; 
-	public class City: BaseEntity
+	public class City
     {
-    //public int Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
 	public List<Person> persons { get; set; } = new List<Person>();
     //public City(string name, List<Person> persons)

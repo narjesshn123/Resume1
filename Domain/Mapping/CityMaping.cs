@@ -11,6 +11,7 @@ namespace Resume1.Mapping
             builder.ToTable("City");
             builder.HasKey(x => x.Id);                                    
             builder.HasMany(x => x.persons).WithOne(x => x.City).HasForeignKey(x=>x.CityId);  
+
             
         }
     }

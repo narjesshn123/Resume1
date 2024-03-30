@@ -9,11 +9,11 @@ using Resume1.AppContext;
 
 #nullable disable
 
-namespace Resume.Infrastructure.Migrations
+namespace Resume.Repo.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240328050649_init")]
-    partial class init
+    [Migration("20240330052906_init2")]
+    partial class init2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

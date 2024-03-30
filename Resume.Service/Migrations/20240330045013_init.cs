@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Resume.Infrastructure.Migrations
+namespace Resume.Repo.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration

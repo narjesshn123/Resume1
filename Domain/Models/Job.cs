@@ -1,5 +1,5 @@
 ﻿namespace Resume1.Models;                   
-	public class Job: BaseEntity
+	public class Job
 {
     //public Job(string title, string employmentStatus, List<Person> person)
     //{
@@ -13,7 +13,7 @@
         EmploymentStatus = employmentStatus;
         Person = person;        
     }
-    //public int Id { get; set; }
+    public int Id { get; set; }
     public string Title { get; set; }
 	public string EmploymentStatus { get; set; } 
 	public List<Person> Person { get; set; }    

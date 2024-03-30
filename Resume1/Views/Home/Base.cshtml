@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "اطلاعات شخصی ";
+}
+<h1>@ViewData["Title"]</h1>
+<div style="
+    display: flex;
+    justify-content: center;
+    align-content: center;">
+    <form asp-action="Base" asp-controller="Home" method="post">
+    نام:<br />
+    <input type="text" name="Name" value="" /><br />
+    نام خانوادگی :<br />
+        <input type="text" name="Family" value="" /><br />
+        ایمیل:<br />
+        <input type="text" name="Email" value="" /><br />
+        شماره تلفن:<br />
+        <input type="text" name="PhoneNumber" value="" /><br />    
+        جنسیت:<br />
+        <input type="text" name="Geger" value="" /><br />    تاریخ تولد:<br />
+        <input type="text" name="DateOfBirth" value="" /> 
+        <br/> 
+        شهر:<br />
+        <input type="text" name="City" value="" />
+        <br/>  
+        <input type="submit" value="Submit" class="submit" />
+</form>
+</div> 
