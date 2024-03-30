@@ -9,12 +9,11 @@
 	public bool Geger { get; set; }
 	public DateTime DateOfBirth { get;  set; }
     public Job Job { get;  set; }
-    public int JobId { get;  set; }
+    public int? JobId { get;  set; }
     public List<EducationalRecord> EducationalRecords { get; set; } = new List<EducationalRecord>();
     public List<PersonLanguages> PersonLanguages { get;  set; } = new List<PersonLanguages>();
     public List<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
-    public City City { get; set; }
-    public int CityId { get; set; }
+
     public List<PersonSkills> PersonSkills { get; set; } = new List<PersonSkills>();
     //public Person(string name, string family, string? email, string? phoneNumber, bool geger, DateTime dateOfBirth, Job job, int jobId, List<EducationalRecord> educationalRecords, List<PersonLanguages> personLanguages, List<WorkExperience> workExperiences, City city, int cityId, List<PersonSkills> personSkills)
     //{

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Resume.Application;
+using Resume.Service;
 using Resume1.AppContext;
 using Resume1.Models;
 
@@ -17,10 +18,12 @@ namespace Resume1.Controllers
 		//	_genericService = genericService;
 		//}
         private readonly IPersonService _personService;
+        private readonly IJobService _jobService;
 
-        public HomeController(IPersonService personService)
+        public HomeController(IPersonService personService, IJobService jobService)
         {
             _personService = personService;
+            _jobService = jobService;   
         }
         public IActionResult Index()
         {
@@ -35,8 +38,8 @@ namespace Resume1.Controllers
         [HttpPost]
 		public IActionResult Base(Person person)
 		{
-          
-                _personService.Create(person);
+           
+            _personService.Create(person);
                 _personService.Save(); 
 
             

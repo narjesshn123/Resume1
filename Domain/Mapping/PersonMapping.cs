@@ -10,8 +10,7 @@ public class PersonMapping : IEntityTypeConfiguration<Person>
         builder.ToTable("Persons");
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(255).IsRequired();  
-        builder.Property(x=>x.PhoneNumber).HasMaxLength(11).IsRequired();  
-        builder.HasOne(x => x.City).WithMany(x => x.persons).HasForeignKey(x => x.CityId);
+        builder.Property(x=>x.PhoneNumber).HasMaxLength(11).IsRequired();
 
         builder.HasMany(x => x.WorkExperiences).WithOne(x => x.Person).HasForeignKey(x => x.PersonId);                 
     }

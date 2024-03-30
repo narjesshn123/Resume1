@@ -12,8 +12,8 @@ using Resume1.AppContext;
 namespace Resume.Repo.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240330054107_init3")]
-    partial class init3
+    [Migration("20240330081716_init6")]
+    partial class init6
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,23 +24,6 @@ namespace Resume.Repo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Resume1.Models.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("City", (string)null);
-                });
 
             modelBuilder.Entity("Resume1.Models.EducationalRecord", b =>
                 {
@@ -128,9 +111,6 @@ namespace Resume.Repo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -144,7 +124,7 @@ namespace Resume.Repo.Migrations
                     b.Property<bool>("Geger")
                         .HasColumnType("bit");
 
-                    b.Property<int>("JobId")
+                    b.Property<int?>("JobId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -158,8 +138,6 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("nvarchar(11)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CityId");
 
                     b.HasIndex("JobId");
 
@@ -262,19 +240,9 @@ namespace Resume.Repo.Migrations
 
             modelBuilder.Entity("Resume1.Models.Person", b =>
                 {
-                    b.HasOne("Resume1.Models.City", "City")
-                        .WithMany("persons")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Resume1.Models.Job", "Job")
                         .WithMany("Person")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
+                        .HasForeignKey("JobId");
 
                     b.Navigation("Job");
                 });
@@ -326,11 +294,6 @@ namespace Resume.Repo.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("Resume1.Models.City", b =>
-                {
-                    b.Navigation("persons");
                 });
 
             modelBuilder.Entity("Resume1.Models.Job", b =>

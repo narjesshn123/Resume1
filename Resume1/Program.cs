@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Resume.Application;
 using Resume.Core.Models;
 using Resume.Repository.Repository;
+using Resume.Service;
 using Resume1.AppContext;
 
 
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<ResumeContext>(options =>
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IPersonService,PersonService>();
+builder.Services.AddScoped<IJobService,JobService>();
 
 var app = builder.Build();
 //builder.Services.AddScoped<IPersonRepository, PersonRepository>(); 

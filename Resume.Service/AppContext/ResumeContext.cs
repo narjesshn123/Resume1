@@ -13,7 +13,6 @@ namespace Resume1.AppContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PersonMapping());
-            modelBuilder.ApplyConfiguration(new CityMaping());
             modelBuilder.ApplyConfiguration(new LanguagesMapping());
             modelBuilder.ApplyConfiguration(new PersonLanguagesMapping());
             modelBuilder.ApplyConfiguration(new SkillsMapping());
@@ -25,7 +24,6 @@ namespace Resume1.AppContext
 
 
         public DbSet<Person> Person { get; set; }
-        public DbSet<City> Cities { get; set; }
         public DbSet<Languages> Languages { get; set; }
         public DbSet<PersonLanguages> PersonLanguages { get; set; }
         public DbSet<Skills> Skills { get; set; }

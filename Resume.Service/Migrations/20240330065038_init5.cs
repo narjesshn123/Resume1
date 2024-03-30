@@ -6,24 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Resume.Repo.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class init5 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "City",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_City", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Job",
                 columns: table => new
@@ -78,18 +65,11 @@ namespace Resume.Repo.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     Geger = table.Column<bool>(type: "bit", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    JobId = table.Column<int>(type: "int", nullable: false),
-                    CityId = table.Column<int>(type: "int", nullable: false)
+                    JobId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Persons_City_CityId",
-                        column: x => x.CityId,
-                        principalTable: "City",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Persons_Job_JobId",
                         column: x => x.JobId,
@@ -204,11 +184,6 @@ namespace Resume.Repo.Migrations
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_CityId",
-                table: "Persons",
-                column: "CityId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Persons_JobId",
                 table: "Persons",
                 column: "JobId");
@@ -247,9 +222,6 @@ namespace Resume.Repo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Persons");
-
-            migrationBuilder.DropTable(
-                name: "City");
 
             migrationBuilder.DropTable(
                 name: "Job");
