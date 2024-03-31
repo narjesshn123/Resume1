@@ -1,9 +1,117 @@
-﻿
+﻿@model Person
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+ <table>
+    <thead>
+        <tr>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>ایمیل</th>
+            <th>شماره تلفن</th>
+          
+            @* <th>Date of Birth</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @* @foreach (var profile in Model) *@
+        
+            <tr>
+                <td>@Model.Name</td>
+                <td>@Model.Family</td>
+                <td>@Model.Email</td>
+                <td>@Model.PhoneNumber</td>
+            
+                @* <td>@Model.DateOfBirth.ToShortDateString()</td> *@
+            </tr>
+        
+    </tbody>
+    <div>edit</div>
+</table>
+    <hr/>
+    <table>
+        <thead>
+            <tr>
+                <th>عنوان شغلی</th>
+         
+            </tr>
+        </thead>
+        <tbody>
+            
+
+            <tr>
+            
+                <td>@Model.Job?.Title</td>
+
+            </tr>
+
+        </tbody>
+        <div>edit</div>
+    </table>
+    <hr />
+
+    <table>
+        <thead>
+            <tr>
+                <th>زبان</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+
+                <td>@Model.PersonLanguages?.FirstOrDefault()?.Languages?.Name</td>
+
+            </tr>
+
+        </tbody>
+
+        <div>edit</div>
+    </table>
+    <hr />
+
+    <table>
+        <thead>
+            <tr>
+                <th>مهارت</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+
+                <td>@Model.PersonSkills?.FirstOrDefault()?.Skills?.Title</td>
+
+            </tr>
+
+        </tbody>
+        <div>edit</div>
+    </table>
+    <hr />
+
+    <table>
+        <thead>
+            <tr>
+                <th>تجربه کاری </th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+
+                <td>@Model.WorkExperiences?.FirstOrDefault()?.Title</td>
+
+            </tr>
+
+        </tbody>
+        <div>edit</div>
+    </table>
 </div>

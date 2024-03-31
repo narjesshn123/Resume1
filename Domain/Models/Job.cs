@@ -14,7 +14,7 @@
         Person = person;        
     }
     public int Id { get; set; }
-    public string Title { get; set; }
+    public string? Title { get; set; }
 	public string ?EmploymentStatus { get; set; } 
 	public List<Person> Person { get; set; }    
 	}

@@ -31,59 +31,63 @@ namespace Resume1.Controllers
             _jobService = jobService; 
             _languageService = languageService; 
         }
-        public IActionResult Index()
+        public IActionResult Index(Person person)
         {
-			var person = _personService.GetPersonById(2); 
-			return View();  
-		}
+            _personService.Create(person);
+            
+            _personService.Save();
+
+
+            return View(person);
+        }
         [HttpGet]
         public IActionResult Base()
         {
             return View();
         }
-        [HttpPost]
-		public IActionResult Base(Person person)
-		{
+  //      [HttpPost]
+		//public IActionResult Base(Person person)
+		//{
            
-            _personService.Create(person);
-                _personService.Save(); 
+  //          _personService.Create(person);
+  //              _personService.Save(); 
 
             
-            return View(person);
+  //          return View(person);
 
-        }
+  //      }
         [HttpGet]
         public IActionResult Job()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Job(Job job)
-        {
+        //[HttpPost]
+        //public IActionResult Job(Job job)
+        //{
 
-            _jobService.Create(job);
-            _jobService.Save();
+        //    _jobService.Create(job);
+        //    _jobService.Save();
 
 
-            return View(job);
+        //    return View(job);
 
-        }
+        //}
         [HttpGet]
         public IActionResult Education()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Education(EducationalRecord educational)
-        {
+        //[HttpPost]
+        //public IActionResult Education(EducationalRecord educational)
+        //{
 
-            _educationalRecordService.Create(educational);
-            _educationalRecordService.Save();
+        //    _educationalRecordService.Create(educational);
+        //    _educationalRecordService.Save();
 
 
-            return View(educational);
+        //    return View(educational);
 
-        }
+        //}
         [HttpGet]
         public IActionResult Language()
         {
@@ -98,51 +102,51 @@ namespace Resume1.Controllers
     };
             return View(languag);
         }
-        [HttpPost]
-        public IActionResult Language(Languages language)
-        {
+        //[HttpPost]
+        //public IActionResult Language(Languages language)
+        //{
 
-            _languageService.Create(language);
-            _languageService.Save();
-            var languag = new List<Languages>();
+        //    _languageService.Create(language);
+        //    _languageService.Save();
+        //    var languag = new List<Languages>();
 
 
 
-            return View(languag);
+        //    return View(languag);
 
-        }
+        //}
         [HttpGet]
         public IActionResult Skill()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Skill(Skills skills)
-        {
-            _skillService.Create(skills);
-            _skillService.Create(skills);
-            //_jobService.Save();
+        //[HttpPost]
+        //public IActionResult Skill(Skills skills)
+        //{
+        //    _skillService.Create(skills);
+        //    _skillService.Create(skills);
+        //    //_jobService.Save();
 
 
-            return View(skills);
+        //    return View(skills);
 
-        }
+        //}
         [HttpGet]
         public IActionResult Work()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Work(WorkExperience workExperience)
-        {
+        //[HttpPost]
+        //public IActionResult Work(WorkExperience workExperience)
+        //{
 
-            _workExperience.Create(workExperience);
-            _workExperience.Save();
+        //    _workExperience.Create(workExperience);
+        //    _workExperience.Save();
 
 
-            return View(workExperience);
+        //    return View(workExperience);
 
-        }
+        //}
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

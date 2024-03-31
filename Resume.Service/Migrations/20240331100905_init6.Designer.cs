@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Resume1.AppContext;
 
@@ -11,9 +12,11 @@ using Resume1.AppContext;
 namespace Resume.Repo.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    partial class ResumeContextModelSnapshot : ModelSnapshot
+    [Migration("20240331100905_init6")]
+    partial class init6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,22 +33,25 @@ namespace Resume.Repo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FeildOfStudy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Grade")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("UniversityName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("startDate")
+                    b.Property<DateTime>("startDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -67,6 +73,7 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

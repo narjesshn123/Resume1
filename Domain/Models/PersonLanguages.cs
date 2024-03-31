@@ -8,6 +8,6 @@ namespace Resume1.Models;
     public Person Person { get; set; }
 
     public int LanguageId { get; set; }
-    public Languages Languages { get; set; }
+    public Languages? Languages { get; set; }
 
 }
