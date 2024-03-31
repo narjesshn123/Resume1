@@ -8,24 +8,20 @@ using Resume1.Models;
 
 namespace Resume.Service
 {
-    public class LanguageService : ILanguageService
+    public class EducationalRecordService : IEducationalRecordService
     {
-        private readonly IGenericRepository<Languages> _genericRepository;
+        private readonly IGenericRepository<EducationalRecord> _genericRepository;
 
-        public LanguageService(IGenericRepository<Languages> repository)
+        public EducationalRecordService(IGenericRepository<EducationalRecord> repository)
         {
             _genericRepository = repository;
         }
+      
 
-        public void Create(Languages entity)
+        public void Create(EducationalRecord entity)
         {
             _genericRepository.Insert(entity);
 
-        }
-
-        public List<Languages> GetAllLanguage()
-        {
-            return _genericRepository.GetAll(null).ToList();  
         }
 
         public void Save()

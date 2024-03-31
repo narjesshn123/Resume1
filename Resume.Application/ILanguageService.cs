@@ -9,6 +9,10 @@ namespace Resume.Service
 {
     public interface ILanguageService
     {
-        public List<Languages> GetAllLanguage(); 
+        public List<Languages> GetAllLanguage();
+        void Create(Languages entity);
+        void Save();
+
+
     }
 }

@@ -8,10 +8,10 @@
     display: flex;
     justify-content: center;
     align-content: center;">
-    <form asp-action="Language" asp-controller="Home" method="post">
+    <form asp-action="Index" asp-controller="Home" method="post">
       
-        <select name="Language" id="Id">
-            <option value="">Select a language</option>
+        <select name="Name" id="Id">
+            <option value="">زبان </option>
             @foreach (var language in Model)
             {
                 <option value="@language.Id">@language.Name</option>
@@ -20,7 +20,6 @@
 
 
         <br />
-        <!-- Other fields -->
 
         <input type="submit" value="Submit" class="submit" />
     </form>

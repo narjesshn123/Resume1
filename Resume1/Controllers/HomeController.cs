@@ -18,12 +18,18 @@ namespace Resume1.Controllers
         private readonly IPersonService _personService;
         private readonly IJobService _jobService;
         private readonly ILanguageService _languageService;
+        private readonly IWorkExperience _workExperience;
+        private readonly ISkillService _skillService; 
+        private readonly IEducationalRecordService _educationalRecordService;
+
+
         //private readonly 
 
-        public HomeController(IPersonService personService, IJobService jobService)
+        public HomeController(IPersonService personService, IJobService jobService, ILanguageService languageService)
         {
             _personService = personService;
-            _jobService = jobService;   
+            _jobService = jobService; 
+            _languageService = languageService; 
         }
         public IActionResult Index()
         {
@@ -71,8 +77,8 @@ namespace Resume1.Controllers
         public IActionResult Education(EducationalRecord educational)
         {
 
-            //_jobService.Create(educational);
-            //_jobService.Save();
+            _educationalRecordService.Create(educational);
+            _educationalRecordService.Save();
 
 
             return View(educational);
@@ -81,7 +87,7 @@ namespace Resume1.Controllers
         [HttpGet]
         public IActionResult Language()
         {
-            var languages = new List<Languages>
+            var languag = new List<Languages>
     {
         new Languages() { Id = 1, Name = "فارسی" },
         new Languages(){ Id = 2, Name = "انگلیسی"},
@@ -90,17 +96,19 @@ namespace Resume1.Controllers
         new Languages(){ Id = 5, Name = "آلمانی "},
         new Languages(){ Id = 6, Name = "اسپانیایی"}
     };
-            return View(languages);
+            return View(languag);
         }
         [HttpPost]
         public IActionResult Language(Languages language)
         {
 
-            //_jobService.Create(job);
-            //_jobService.Save();
+            _languageService.Create(language);
+            _languageService.Save();
+            var languag = new List<Languages>();
 
 
-            return View(language);
+
+            return View(languag);
 
         }
         [HttpGet]
@@ -111,8 +119,8 @@ namespace Resume1.Controllers
         [HttpPost]
         public IActionResult Skill(Skills skills)
         {
-
-            //_jobService.Create(job);
+            _skillService.Create(skills);
+            _skillService.Create(skills);
             //_jobService.Save();
 
 
@@ -124,17 +132,17 @@ namespace Resume1.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Work(WorkExperience workExperience)
-        //{
+        [HttpPost]
+        public IActionResult Work(WorkExperience workExperience)
+        {
 
-        //    _jobService.Create(job);
-        //    _jobService.Save();
+            _workExperience.Create(workExperience);
+            _workExperience.Save();
 
 
-        //    return View(workExperience);
+            return View(workExperience);
 
-        //}
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
