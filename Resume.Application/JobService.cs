@@ -18,9 +18,19 @@ namespace Resume.Service
             _genericRepository = repository;
         }
 
+        public void Create(Job entity)
+        {
+            _genericRepository.Insert(entity);
+        }
+
         public Job GetJobById(int id)
         {
             return _genericRepository.GetAll(p => p.Id == id).SingleOrDefault();
+        }
+
+        public void Save()
+        {
+            _genericRepository.SaveChanges();  
         }
     }
 }

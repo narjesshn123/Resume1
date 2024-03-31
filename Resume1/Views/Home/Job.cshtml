@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "اطلاعات شغلی  ";
+}
+<h1>@ViewData["Title"]</h1>
+<div style="
+    display: flex;
+    justify-content: center;
+    align-content: center;">
+    <form asp-action="Job" asp-controller="Home" method="post">
+        عنوان شغلی :<br />
+        <input type="text" name="Title" value="" /><br />
+
+        <br />
+        <!-- Other fields -->
+
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+</div> 

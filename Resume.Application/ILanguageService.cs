@@ -7,12 +7,8 @@ using Resume1.Models;
 
 namespace Resume.Service
 {
-    public interface IJobService
+    public interface ILanguageService
     {
-        Job GetJobById(int id);
-        void Create(Job entity);
-        void Save();
-         
-
+        public List<Languages> GetAllLanguage(); 
     }
 }

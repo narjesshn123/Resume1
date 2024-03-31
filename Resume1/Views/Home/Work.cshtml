@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "سوابق کاری   ";
+}
+<h1>@ViewData["Title"]</h1>
+<div style="
+    display: flex;
+    justify-content: center;
+    align-content: center;">
+    <form asp-action="Work" asp-controller="Home" method="post">
+        عنوان :<br />
+        <input type="text" name="Title" value="" /><br />
+       نام شرکت :<br />
+        <input type="text" name="CompanyName" value="" /><br />
+       تاریخ شروع: <br />
+        <input type="text" name="StartDate" value="" /><br />
+       تاریخ پایان: <br />
+        <input type="text" name="EndDate" value="" /><br />
+        <br />
+        <!-- Other fields -->
+
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+</div>  

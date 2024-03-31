@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Languages>
+
+@{
+    ViewData["Title"] = "زبان ها   ";
+}
+<h1>@ViewData["Title"]</h1>
+<div style="
+    display: flex;
+    justify-content: center;
+    align-content: center;">
+    <form asp-action="Language" asp-controller="Home" method="post">
+      
+        <select name="Language" id="Id">
+            <option value="">Select a language</option>
+            @foreach (var language in Model)
+            {
+                <option value="@language.Id">@language.Name</option>
+            }
+        </select>
+
+
+        <br />
+        <!-- Other fields -->
+
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+</div> 

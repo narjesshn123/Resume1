@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "تحصیلات    ";
+}
+<h1>@ViewData["Title"]</h1>
+<div style="
+    display: flex;
+    justify-content: center;
+    align-content: center;">
+    <form asp-action="Education" asp-controller="Home" method="post">
+       مقطع تحصیلی  :<br />
+        <input type="text" name="Title" value="" /><br />
+
+        <br />
+        <!-- Other fields -->
+
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+</div> 
