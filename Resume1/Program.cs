@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Resume.Application;
 using Resume.Core.Models;
+using Resume.Interface;
 using Resume.Repository.Repository;
 using Resume.Service;
 using Resume1.AppContext;

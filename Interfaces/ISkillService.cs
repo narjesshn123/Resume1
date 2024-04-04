@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Resume1.Models;
 
-namespace Resume.Service
+namespace Resume.Interface
+
 {
     public interface ISkillService
     {

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Resume.Data.csproj" />
+    <ProjectReference Include="..\Interfaces\Resume.Interface.csproj" />
   </ItemGroup>
 
 </Project>

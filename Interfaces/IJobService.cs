@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Resume.Core;
 using Resume1.Models;
 
-namespace Resume.Service
+namespace Resume.Interface
+
 {
     public interface IJobService
     {

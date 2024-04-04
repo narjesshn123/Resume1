@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Resume.Data.csproj" />
-    <ProjectReference Include="..\Interfaces\Resume.Interface.csproj" />
-    <ProjectReference Include="..\Resume.Service\Resume.Repo.csproj" />
   </ItemGroup>
 
 </Project>

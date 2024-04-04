@@ -1,6 +1,7 @@
 ﻿using Resume1.Models;
 
-namespace Resume.Application
+namespace Resume.Interface
+
 {
     public interface IPersonService 
     {

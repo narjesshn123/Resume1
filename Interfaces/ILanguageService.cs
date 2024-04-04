@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Resume1.Models;
 
-namespace Resume.Service
-{
-    public interface IEducationalRecordService
+namespace Resume.Interface {
+
+
+    public interface ILanguageService
     {
-        void Create(EducationalRecord entity);
+        public List<Languages> GetAllLanguage();
+        void Create(Languages entity);
         void Save();
+
     }
-}
+    }
+

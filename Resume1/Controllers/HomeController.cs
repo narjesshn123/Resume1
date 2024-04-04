@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Resume.Application;
+using Resume.Interface;
 using Resume.Service;
 using Resume1.Models;
 using Syncfusion.EJ2.Schedule;
@@ -33,7 +34,7 @@ namespace Resume1.Controllers
         }
         public IActionResult Index(Person person)
         {
-            _personService.Create(person);
+            _personService.GetPersonById(person.Id);
             
             _personService.Save();
 
@@ -45,17 +46,28 @@ namespace Resume1.Controllers
         {
             return View();
         }
-  //      [HttpPost]
-		//public IActionResult Base(Person person)
-		//{
+        [HttpPost]
+        public IActionResult Base(Person person)
+        {
            
-  //          _personService.Create(person);
-  //              _personService.Save(); 
+                if (ModelState.IsValid)
+                {
+                    if (person.Id <= 0) // Assuming 0 or less ID indicates a new Person
+                    {
+                        _personService.Create(person);
+                    }
+                    else
+                    {
+                        _personService.UpdatePerson(person);
+                    }
+                    _personService.Save();
 
-            
-  //          return View(person);
+                    return RedirectToAction("Index", "Home");
 
-  //      }
+                }
+            return View(person);
+
+        }
         [HttpGet]
         public IActionResult Job()
         {

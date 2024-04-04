@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Resume1.Models;
 
-namespace Resume.Service
+
+namespace Resume.Interface
+
 {
     public interface IWorkExperience
     {
-        void Create(WorkExperience entity);
+
+        void Create(WorkExperience entity);  
         void Save();
     }
 }
