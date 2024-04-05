@@ -1,9 +1,13 @@
-﻿namespace Resume1.Models; 
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Resume1.Models; 
 	public class Person
 { 
-    public int Id { get; set; } 
-    public string? Name { get; set; }
-	public string? Family { get; set; }
+    public int Id { get; set; }
+    [Required(ErrorMessage = "لطفا نام را وارد کنید . ")]
+    public string Name { get; set; }
+    [Required(ErrorMessage = "لطفا نام خانوادگی را وارد کنید . ")]
+    public string Family { get; set; }
 	public string? Email { get; set; }
 	public string? PhoneNumber { get;  set; }
 	public bool Geger { get; set; }

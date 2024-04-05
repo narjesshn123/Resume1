@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Person
+@{
     ViewData["Title"] = "اطلاعات شخصی ";
 }
 <h1>@ViewData["Title"]</h1>
@@ -6,16 +7,24 @@
     display: flex;
     justify-content: center;
     align-content: center;">
-    <form asp-action="Base" asp-controller="Home" method="post">
+    <form asp-action="Index" asp-controller="Home" method="post">
     نام:<br />
-    <input type="text" name="Name" value="" /><br />
+    <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span><br />
+    <br />
     نام خانوادگی :<br />
-        <input type="text" name="Family" value="" /><br />
+        <input type="text" asp-for="Family" />
+        <span asp-validation-for="Family" class="text-danger"></span><br />
+        <br />
         ایمیل:<br />
-        <input type="text" name="Email" value="" /><br />
+        <input type="text" asp-for="Email" />
+        <span asp-validation-for="Email"  class="text-danger"></span><br />
+        <br />
         شماره تلفن:<br />
-        <input type="text" name="PhoneNumber" value="" /><br />    
-    @*     جنسیت:<br />
+        <input type="text" asp-for="PhoneNumber"/>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span><br />
+        <br />
+        @*     جنسیت:<br />
         <input type="text" name="Geger" value="" /><br />  *@ 
        @*  تاریخ تولد:<br />
         <input type="text" name="DateOfBirth" value="" />  *@

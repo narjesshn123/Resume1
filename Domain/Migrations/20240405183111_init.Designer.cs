@@ -9,11 +9,11 @@ using Resume1.AppContext;
 
 #nullable disable
 
-namespace Resume.Repo.Migrations
+namespace Resume.Data.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240331094742_init4")]
-    partial class init4
+    [Migration("20240405183111_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,25 +33,22 @@ namespace Resume.Repo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FeildOfStudy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Grade")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("UniversityName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("startDate")
+                    b.Property<DateTime?>("startDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -73,7 +70,6 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -118,7 +114,6 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Family")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -129,12 +124,10 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 

@@ -1,10 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Resume.Application;
 using Resume.Interface;
-using Resume.Service;
 using Resume1.Models;
-using Syncfusion.EJ2.Schedule;
 
 namespace Resume1.Controllers
 {
@@ -32,9 +29,22 @@ namespace Resume1.Controllers
             _jobService = jobService; 
             _languageService = languageService; 
         }
+        
         public IActionResult Index(Person person)
         {
-            _personService.GetPersonById(person.Id);
+            var existPerson = _personService.GetPersonById(person.Id);
+            if (existPerson != null)
+            {
+                existPerson.Name = person.Name;
+                existPerson.PhoneNumber = person.PhoneNumber;
+                existPerson.Email = person.Email;
+                existPerson.Family = person.Family;
+                _personService.UpdatePerson(existPerson);
+            }
+            else
+            {
+                _personService.Create(person); 
+            }
             
             _personService.Save();
 
@@ -42,9 +52,10 @@ namespace Resume1.Controllers
             return View(person);
         }
         [HttpGet]
-        public IActionResult Base()
+        public IActionResult Base(int id)
         {
-            return View();
+            var person = _personService.GetPersonById(id);  
+            return View(person);
         }
         [HttpPost]
         public IActionResult Base(Person person)

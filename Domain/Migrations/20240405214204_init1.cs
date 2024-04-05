@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace Resume.Repo.Migrations
+namespace Resume.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class init5 : Migration
+    public partial class init1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,20 +15,24 @@ namespace Resume.Repo.Migrations
                 table: "Persons",
                 type: "nvarchar(255)",
                 maxLength: 255,
-                nullable: true,
+                nullable: false,
+                defaultValue: "",
                 oldClrType: typeof(string),
                 oldType: "nvarchar(255)",
-                oldMaxLength: 255);
+                oldMaxLength: 255,
+                oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Family",
                 table: "Persons",
                 type: "nvarchar(255)",
                 maxLength: 255,
-                nullable: true,
+                nullable: false,
+                defaultValue: "",
                 oldClrType: typeof(string),
                 oldType: "nvarchar(255)",
-                oldMaxLength: 255);
+                oldMaxLength: 255,
+                oldNullable: true);
         }
 
         /// <inheritdoc />
@@ -39,24 +43,20 @@ namespace Resume.Repo.Migrations
                 table: "Persons",
                 type: "nvarchar(255)",
                 maxLength: 255,
-                nullable: false,
-                defaultValue: "",
+                nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(255)",
-                oldMaxLength: 255,
-                oldNullable: true);
+                oldMaxLength: 255);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Family",
                 table: "Persons",
                 type: "nvarchar(255)",
                 maxLength: 255,
-                nullable: false,
-                defaultValue: "",
+                nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(255)",
-                oldMaxLength: 255,
-                oldNullable: true);
+                oldMaxLength: 255);
         }
     }
 }

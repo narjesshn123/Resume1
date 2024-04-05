@@ -4,8 +4,12 @@
 }
 
 <div class="text-center">
- <table>
-    <thead>
+    <h3 class="title">اطلاعات پایه </h3>
+
+    <div class="panel">
+
+        <table>
+   @*  <thead>
         <tr>
             <th>نام</th>
             <th>نام خانوادگی</th>
@@ -13,7 +17,7 @@
             <th>شماره تلفن</th>
           
         </tr>
-    </thead>
+    </thead> *@
     <tbody>
         
             <tr>
@@ -25,11 +29,16 @@
             </tr>
         
     </tbody>
-        <button onclick="">
-            <a asp-area="" asp-controller="Home" asp-action="Base">ویرایش</a>
-        </button>
+      
 </table>
-    <hr/>
+        <button class="button_edit" onclick="">
+            <a class="edit_text" asp-area="" asp-controller="Home" asp-action="Base" asp-route-id="@Model.Id"> 
+                ویرایش</a>
+        </button>
+    </div>
+    <h3 class="title">اطلاعات شغلی </h3>
+
+    <div class="panel">
     <table>
         <thead>
             <tr>
@@ -47,12 +56,15 @@
             </tr>
 
         </tbody>
-        <button >
-            <a asp-area="" asp-controller="Home" asp-action="Job">ویرایش</a>
-        </button>
+     
     </table>
-    <hr />
+        <button class="button_edit">
+            <a class="edit_text" asp-area="" asp-controller="Home" asp-action="Job">ویرایش</a>
+        </button>
+    </div>
+    <h3 class="title">زبان های خارجه  </h3>
 
+    <div class="panel">
     <table>
         <thead>
             <tr>
@@ -70,13 +82,15 @@
             </tr>
 
         </tbody>
+        </table>
 
-        <button onclick="">
-            <a asp-area="" asp-controller="Home" asp-action="Language">ویرایش</a>
+        <button class="button_edit" onclick="">
+            <a class="edit_text" asp-area="" asp-controller="Home" asp-action="Language">ویرایش</a>
         </button>
-    </table>
-    <hr />
+    </div>
+    <h3 class="title">مهارت ها  </h3>
 
+    <div class="panel">
     <table>
         <thead>
             <tr>
@@ -94,12 +108,15 @@
             </tr>
 
         </tbody>
-        <button >
-            <a asp-area="" asp-controller="Home" asp-action="Skill">ویرایش</a>
-        </button>
-    </table>
-    <hr />
+        </table>
 
+        <button class="button_edit">
+            <a class="edit_text" asp-area="" asp-controller="Home" asp-action="Skill">ویرایش</a>
+        </button>
+    </div>
+    <h3 class="title">سوابق کاری  </h3>
+
+    <div class="panel">
     <table>
         <thead>
             <tr>
@@ -117,22 +134,43 @@
             </tr>
 
         </tbody>
-        <button onclick="">
-            <a asp-area="" asp-controller="Home" asp-action="Work">ویرایش</a>
+        </table>
+         
+        <button class="button_edit" onclick="">
+            <a class="edit_text" asp-area="" asp-controller="Home" asp-action="Work">ویرایش</a>
         </button>
-    </table>
+    </div>
 </div>
 <style>
-    .button {
-        background-color: dodgerblue; /* Green */
+    .title{
+        display: flex;
+        padding-right: 15px;
+    }
+    .button_edit {
+        background-color: #008CBA; /* Green */
         border: none;
         color: white;
-        padding: 15px 32px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+    }
+
+    .panel{
+        border: 1px solid;
+        border-radius: 10px;
+        width: 65%;
+        display: flex;
+        justify-content: space-between;  
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .edit_text{
+        color:white; 
+        text-decoration: none;
     }
 </style>

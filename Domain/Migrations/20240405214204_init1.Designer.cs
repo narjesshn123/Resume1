@@ -9,11 +9,11 @@ using Resume1.AppContext;
 
 #nullable disable
 
-namespace Resume.Repo.Migrations
+namespace Resume.Data.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    [Migration("20240331102643_init7")]
-    partial class init7
+    [Migration("20240405214204_init1")]
+    partial class init1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,6 +114,7 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Family")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -124,6 +125,7 @@ namespace Resume.Repo.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
